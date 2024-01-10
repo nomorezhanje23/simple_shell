@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * words_count - number of words in a string
  * @str: string
