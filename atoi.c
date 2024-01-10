@@ -55,3 +55,20 @@ else
 output = result;
 return (output);
 }
+
+/**
+ * is_delimiter - looks if delimiter is a character
+ * @c: the character
+ * @delimiters: the delimeter
+ * Return: True if a delimiter, else false when not true
+ */
+
+bool is_delimiter(char c, char *delimiters)
+{
+int s;
+
+for (s = 0; delimiters[s]; s++)
+if (c == delimiters[s])
+return (true);
+return (false);
+}
