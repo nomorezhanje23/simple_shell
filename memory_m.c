@@ -8,11 +8,11 @@
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i;
+unsigned int i;
 
-	for (i = 0; i < n; i++)
-		s[i] = b;
-	return (s);
+for (i = 0; i < n; i++)
+s[i] = b;
+return (s);
 }
 
 /**
@@ -23,14 +23,14 @@ char *_memset(char *s, char b, unsigned int n)
 
 void free_vector(char **vec)
 {
-	char **ptr = vec;
+char **ptr = vec;
 
-	if (!vec)
-		return;
-	while (*vec)
-		free(*vec++);
+if (!vec)
+return;
+while (*vec)
+free(*vec++);
 
-	free(ptr);
+free(ptr);
 }
 
 /**
@@ -43,22 +43,22 @@ void free_vector(char **vec)
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *p;
+char *p;
 
-	if (!ptr)
-		return (malloc(new_size));
-	if (!new_size)
-		return (free(ptr), NULL);
-	if (new_size == old_size)
-		return (ptr);
-	p = malloc(new_size);
-	if (!p)
-		return (NULL);
-	old_size = old_size < new_size ? old_size : new_size;
-	while (old_size--)
-		p[old_size] = ((char *)ptr)[old_size];
-	free(ptr);
-	return (p);
+if (!ptr)
+return (malloc(new_size));
+if (!new_size)
+return (free(ptr), NULL);
+if (new_size == old_size)
+return (ptr);
+p = malloc(new_size);
+if (!p)
+return (NULL);
+old_size = old_size < new_size ? old_size : new_size;
+while (old_size--)
+p[old_size] = ((char *)ptr)[old_size];
+free(ptr);
+return (p);
 }
 
 /**
@@ -68,11 +68,11 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
  */
 int bfree(void **ptr)
 {
-	if (ptr && *ptr)
-	{
-		free(*ptr);
-		*ptr = NULL;
-		return (1);
-	}
-	return (0);
+if (ptr && *ptr)
+{
+free(*ptr);
+*ptr = NULL;
+return (1);
+}
+return (0);
 }

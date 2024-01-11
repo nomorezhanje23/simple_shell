@@ -108,15 +108,15 @@ int read_history(info_s *info)
  */
 int update_history(info_s *info, char *buf, int linecount)
 {
-	list_s *node = NULL;
+list_s *node = NULL;
 
-	if (info->history)
-		node = info->history;
-	add_node_end(&node, buf, linecount);
+if (info->history)
+node = info->history;
+add_node_end(&node, buf, linecount);
 
-	if (!info->history)
-		info->history = node;
-	return (0);
+if (!info->history)
+info->history = node;
+return (0);
 }
 
 /**
@@ -126,13 +126,13 @@ int update_history(info_s *info, char *buf, int linecount)
  */
 int renumber_history(info_s *info)
 {
-	list_s *node = info->history;
-	int i = 0;
+list_s *node = info->history;
+int b = 0;
 
-	while (node)
-	{
-		node->num = i++;
-		node = node->next;
-	}
-	return (info->hist_lines = i);
+while (node)
+{
+node->num = b++;
+node = node->next;
+}
+return (info->hist_lines = b);
 }

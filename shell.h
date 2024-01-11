@@ -42,73 +42,73 @@
 extern char **environ;
 
 /**
- * struct ListNode - linked list of nodes
- * @num: integer  number
- * @str: the string
- * @next: pointer to next node
+ * struct ListNode - list of nodes (linked)
+ * @num: number int
+ * @str: string
+ * @next: next node pointer
  */
 typedef struct ListNode
 {
-	int num;
-	char *str;
-	struct ListNode *next;
+int num;
+char *str;
+struct ListNode *next;
 } list_s;
 
 /**
- * struct InfoNode - linked list ig nodes
- * @arg: string  holding the arguments
- * @argv: string that has an array
- * @path: string path
- * @argc: arguments count
- * @lines: errors faced as a number
- * @error_code: error code exit()
- * @lc_flag: this is a flag determiner
- * @prog_name: program file name
- * @env:  list of environment var
- * @environ: modified linked list of the existing environment
- * @history: history command node
- * @alias: alias command node
+ * struct InfoNode - node informatiom
+ * @arg:  argument
+ * @argv: argument array
+ * @path: path
+ * @argc: count of arguments
+ * @lines: number which represent errors
+ * @error_code: the exit() error code
+ * @lc_flag: determines the flag
+ * @prog_name: name of program file
+ * @env: environment var list
+ * @environ: env created from an existing environment
+ * @history: the command for history
+ * @alias: command alias node
  * @env_changed: flag environment checker
- * @status: recent executed commant status return
- * @sep_buff: chaining address pointer
- * @sep_buff_kind: command buffer
- * @fd_read: file descriptor line input reading
+ * @status: status from recent command
+ * @sep_buff: pointer address for chaining
+ * @sep_buff_kind: command buffer type
+ * @fd_read: file descriptor
  * @hist_lines: history line number
  */
 
 typedef struct InfoNode
 {
-	char *arg;
-	char **argv;
-	char *path;
-	int argc;
-	size_t lines;
-	int error_code;
-	int lc_flag;
-	char *prog_name;
-	list_s *env;
-	list_s *history;
-	list_s *alias;
-	char **environ;
-	int env_changed;
-	int status;
+char *arg;
+char **argv;
+char *path;
+int argc;
+size_t lines;
+int error_code;
+int lc_flag;
+char *prog_name;
+list_s *env;
+list_s *history;
+list_s *alias;
+char **environ;
+int env_changed;
+int status;
 
-	char **sep_buff;
-	int sep_buff_kind;
-	int fd_read;
-	int hist_lines;
+char **sep_buff;
+int sep_buff_kind;
+int fd_read;
+int hist_lines;
 } info_s;
 
 /**
- * struct builtin - has builtin string with related function
- * @type:  command flag
- * @func:  function
+ * struct builtin - builtin with function
+ * @type: the command flag
+ * @func: the function
  */
 
 typedef struct builtin
 {
-	char *type;
-	int (*func)(info_s *);
+char *type;
+int (*func)(info_s *);
 } builtin_commands;
 
 int shell_main(info_s *info, char **av);

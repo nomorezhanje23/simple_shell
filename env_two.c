@@ -9,17 +9,17 @@
 
 char *_getenv(info_s *info, const char *name)
 {
-	char *p;
-	list_s *node = info->env;
+char *p;
+list_s *node = info->env;
 
-	while (node)
-	{
-		p = starts_with(node->str, name);
-		if (p && *p)
-			return (p);
-		node = node->next;
-	}
-	return (NULL);
+while (node)
+{
+p = starts_with(node->str, name);
+if (p && *p)
+return (p);
+node = node->next;
+}
+return (NULL);
 }
 
 /**
@@ -30,15 +30,15 @@ char *_getenv(info_s *info, const char *name)
 
 int check_setenv(info_s *info)
 {
-	if (info->argc != 3)
-	{
-		puts_err("Number of arguements is incorrect\n");
-		return (1);
-	}
+if (info->argc != 3)
+{
+puts_err("Number of arguements is incorrect\n");
+return (1);
+}
 
-	if (_setenv(info, info->argv[1], info->argv[2]))
-		return (0);
-	return (1);
+if (_setenv(info, info->argv[1], info->argv[2]))
+return (0);
+return (1);
 }
 
 /**
@@ -48,17 +48,17 @@ int check_setenv(info_s *info)
  */
 int check_unsetenv(info_s *info)
 {
-	int i;
+int x;
 
-	if (info->argc == 1)
-	{
-		puts_err("Arguements are too few\n");
-		return (1);
-	}
-	for (i = 1; i <= info->argc; i++)
-		_unsetenv(info, info->argv[i]);
+if (info->argc == 1)
+{
+puts_err("Arguements are too few\n");
+return (1);
+}
+for (x = 1; x <= info->argc; x++)
+_unsetenv(info, info->argv[x]);
 
-	return (0);
+return (0);
 }
 
 /**
@@ -68,13 +68,13 @@ int check_unsetenv(info_s *info)
  */
 int gather_env(info_s *info)
 {
-	list_s *node = NULL;
-	size_t i;
+list_s *node = NULL;
+size_t i;
 
-	for (i = 0; environ[i]; i++)
-		add_node_end(&node, environ[i], 0);
-	info->env = node;
-	return (0);
+for (i = 0; environ[i]; i++)
+add_node_end(&node, environ[i], 0);
+info->env = node;
+return (0);
 }
 
 /**
@@ -84,6 +84,6 @@ int gather_env(info_s *info)
  */
 int _printenv(info_s *info)
 {
-	print_list_str(info->env);
-	return (0);
+print_list_str(info->env);
+return (0);
 }
